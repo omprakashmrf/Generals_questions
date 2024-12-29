@@ -1,0 +1,85 @@
+# converting interger into decimal
+import decimal
+interger=10
+a=decimal.Decimal(interger)
+print(a)
+print(type(a))
+
+# converting string into decimal
+string="123456"
+b = decimal.Decimal(string)
+print(b)
+print(type(b))
+
+
+# reverse string using slice 
+main_string="python programming"
+reverse_string=main_string[::-1]
+print(reverse_string)
+
+# count the vawel
+vowel = ['a', 'e', 'i', 'o', 'u']
+word = "programming"
+count=0
+
+for i in range(len(word)):
+    if word[i] in vowel:
+        count+=1
+print(count)
+
+# count the consonant in the word
+vowel = ['a', 'e', 'i', 'o', 'u']
+word = "programming"
+count=0
+
+for i in range(len(word)):
+    if word[i] not in vowel:
+        count+=1
+print(count)
+
+
+# found the number of occurence
+word= "python"
+charactor = "p"
+count=0
+
+for i in word:
+    if i==charactor:
+        count+=1
+print(count)     
+
+# find the max number in list
+aa=[3,44,6,8]
+max_number = aa[0]
+for i in aa:
+    if max_number < i:
+        max_number = i
+        
+#max_number=max(aa)
+print(max_number)
+
+
+aa=[3,44,6,8]
+min_number = aa[0]
+for i in aa:
+    if min_number > i:
+        min_number=i
+        
+#min_number=max(aa)
+print(min_number)
+
+
+# find the middle element in the list 
+ll=[3,6,80,9,12]
+middleplace = int(len(ll)//2)
+value=ll[middleplace]
+print(value)
+
+# converting list into string 
+bb=['3','5','7','8','9']
+
+print("".join(bb))
+    
+
+        
+
