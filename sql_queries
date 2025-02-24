@@ -1,0 +1,10 @@
+1. write a queries to retrive the list of employee working in the same department
+
+select distinct e.empid, empfname, e.department from employeeinfo e employeeinfo e1 where e.department=e1.department and e.empid !=e1.empid
+
+2. write a queries to fetch detils of employee whoes emplname end with  an alphabet 'A' and contain five alphabets
+
+select * from emaployeeonfo where emplname LIKE '____a'
+
+oprator  -> LIKE 
+wildcard --> '_'
