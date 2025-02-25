@@ -1,3 +1,9 @@
+my_dict = {'c': 3, 'a': 1, 'b': 2}
+# Sorting by keys
+sorted_dict = {k: my_dict[k] for k in sorted(my_dict)}
+print(sorted_dict)
+
+
 # converting interger into decimal
 import decimal
 interger=10
