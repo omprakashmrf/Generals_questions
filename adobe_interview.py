@@ -1,3 +1,32 @@
+data = {
+    'Name': ['Ram', 'Shyam', 'Geeta', 'Pooja', 'Anshika'],
+    'Age': [25, 15, 35, 40, 20],
+    'City': ['Delhi', 'Mumbai', 'Bangalore', 'Delhi', 'Andaman'],
+    'Salary': [50000, 60000, 55000, 70000, 65000]
+}
+
+# print(data)
+
+sal_list=data['Salary']
+# print(sal_list)
+
+sal_list=sorted(sal_list)
+print(sal_list)
+b=sal_list[-2]
+print(b)
+
+c=data['Salary'].index(b)
+print(c)
+
+result = {k: data[k][c]  for k in data}
+print(result)
+
+
+
+
+
+
+
 employees = [
     {"name": "John", "salary": 5000},
     {"name": "Jane", "salary": 7000},
