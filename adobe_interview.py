@@ -1,3 +1,43 @@
+# Sample set
+my_set = {3, 1, 4, 1, 5, 9}
+
+# Sorting the set by converting it to a list
+sorted_list = sorted(my_set)
+
+# Output the sorted list
+print("Sorted set (as a list):", sorted_list)
+
+# If you want to convert the sorted list back to a set (note: it will lose order in the set)
+sorted_set = set(sorted_list)
+print("Sorted set (as a set):", sorted_set)
+
+# Sorting the set in reverse order
+sorted_set_desc = sorted(my_set, reverse=True)
+
+# Output the sorted set in reverse
+print("Sorted set (descending order):", sorted_set_desc)
+
+
+
+# Sample tuple
+my_tuple = (3, 1, 4, 1, 5, 9)
+
+# Convert the tuple to a list and sort it
+sorted_list = sorted(my_tuple)
+
+# Convert the sorted list back to a tuple
+sorted_tuple = tuple(sorted_list)
+
+# Output the sorted tuple
+print("Sorted tuple:", sorted_tuple)
+
+# Sorting the tuple in reverse order
+sorted_tuple_desc = tuple(sorted(my_tuple, reverse=True))
+
+# Output the sorted tuple in reverse
+print("Sorted tuple (descending):", sorted_tuple_desc)
+
+
 data = {
     'b': 2,
     'a': 1,
