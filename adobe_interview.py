@@ -1,4 +1,28 @@
 data = {
+    'b': 2,
+    'a': 1,
+    'd': 4,
+    'c': 3
+}
+
+print(data.items())
+c=dict(sorted(data.items()))
+print(c)
+
+result = []
+for k,v in sorted(data.items()):
+    result.append(k)
+    
+
+print(result)
+
+
+
+
+
+
+
+data = {
     'Name': ['Ram', 'Shyam', 'Geeta', 'Pooja', 'Anshika'],
     'Age': [25, 15, 35, 40, 20],
     'City': ['Delhi', 'Mumbai', 'Bangalore', 'Delhi', 'Andaman'],
