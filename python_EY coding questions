@@ -44,3 +44,20 @@ def first_unique_char(s):
     return None  # or return '' if you prefer
 
 
+def first_unique_char(s):
+    from collections import Counter
+
+    freq = Counter(s)
+
+    for i, char in enumerate(s):
+        if freq[char] == 1:
+            return i
+    return -1
+
+# Example
+print(first_unique_char("leetcode"))   # Output: 0
+print(first_unique_char("loveleetcode"))  # Output: 2
+print(first_unique_char("aabb"))  # Output: -1
+
+
+
