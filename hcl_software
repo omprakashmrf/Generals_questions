@@ -1,0 +1,46 @@
+#a= int(input("enter the input"))
+# a=[2,14,5,7,8,9]
+# print((a[:4]))
+# b=(a[:4])
+# print(b)
+
+# #b.sort()
+# print(b[-1])
+
+# def getfirstfourreturnbiggest(arr):
+    
+#     while len(arr) >4:
+#         first=arr[:4]
+#         b=(a[:4])
+#         b.sort()
+#         print(b[-1])
+#         second=[4:]
+#         c=len(second)
+#         for i in range(c):
+
+            
+# class imputableclass():
+#     def __init__(self, name, age):
+#         self.name= name
+#         self.age = age
+    
+#     def _fun(self):
+#         print(self.name)
+
+# c=imputable("ram", 31)
+# c._fun()
+
+# how to find the folder and file from our system through 
+#code loging without giving the path
+
+#jencking pipeline working structure
+
+
+
+        
+        
+    
+
+
+
+
