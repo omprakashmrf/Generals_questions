@@ -76,6 +76,52 @@ SET io = CASE
 
 
 
+# def prinmuber(num):
+#     if num < 2:
+#         return -1
+    
+#     result = []
+#     is_prime=False
+    
+#     for i in range(num):
+#         for j in range(2, int(num//2)):
+#             if i%j==:
+#                 break;
+#             elif is_prime:
+#                 result.append(j)
 
+#     return result
+# print(prinmuber(100))
 
+class Account():
+    def __init__(self, account):
+        self.account=account
+    
+    def account_detail(self):
+        #print("account class is calling")
+        print(self.account)
 
+class savingAccont(Account):
+    
+    def __init__(self, account_type):
+        self.account_type=account_type
+    
+    def saving_acount(self):
+        print(self.account_type)
+        
+class checking_account(Account):
+    
+    def __init__(self, account_balance):
+        self.account_balance=account_balance
+    
+    def checking_acount(self):
+        print(self.account_balance)
+        return self.account_balance
+
+        
+d=checking_account(2000)
+#print(d.account)
+print(d.checking_acount())
+
+# print(str("asdsfdsf"))
+        
