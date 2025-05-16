@@ -24,4 +24,32 @@ generate_pattern(1000)
 6. diffrence b/w MVT and MVC 
 7. diffrence in  == and is operator in python
 
+Q) # create flattered list
+data = [1, 2, [3], 3, [4, 5]]
+flattened = []
+
+for item in data:
+    if isinstance(item, list):
+        flattened.extend(item)
+    else:
+        flattened.append(item)
+
+print(flattened)
+
+
+Q) s = "yamini"
+output="y1a1m1i2n1"
+from collections import Counter
+
+count = Counter(s)
+output = ""
+seen = set()
+
+for i, char in enumerate(s):
+    # If it's the last occurrence of the character
+    if char not in seen:
+        output += f"{char}{count[char]}"
+        seen.add(char)
+
+print(output)
 
