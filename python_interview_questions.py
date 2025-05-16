@@ -66,4 +66,16 @@ def atm_breakdown(amount):
 atm_breakdown(3300)
 
 
+SQL Query to Reverse the Values in a Column
+
+UPDATE test_table
+SET io = CASE 
+            WHEN io = 1 THEN 0
+            WHEN io = 0 THEN 1
+         END;
+
+
+
+
+
 
