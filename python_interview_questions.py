@@ -53,3 +53,17 @@ for i, char in enumerate(s):
 
 print(output)
 
+# ATM machin cash withdrow
+def atm_breakdown(amount):
+    notes = [500, 200, 100]
+    for note in notes:
+        count = amount // note
+        if count > 0:
+            print(f"Note of {note} is {count}")
+            amount %= note
+
+# Example usage
+atm_breakdown(3300)
+
+
+
