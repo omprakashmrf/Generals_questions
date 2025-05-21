@@ -156,5 +156,31 @@ def productexceptself(nums):
 
 print(productexceptself([1,2,3,4]))    
 
+#with division oprator 
+def productexceptself(nums):
+    product =1
+    zero_count = nums.count(0)
+    res = []
+    
+    if zero_count >1:
+        return [0]* len(nums)
+    
+    for num in nums:
+        if num !=0:
+            product *=num
+    
+    for num in nums:
+        if zero_count==0:
+            res.append(product//num)
+        else:
+            res.append(product if num==0 else 0)
+        
+    return res
+
+print(productexceptself([1,2,3,4]))    
+
+
+        
+
 
         
