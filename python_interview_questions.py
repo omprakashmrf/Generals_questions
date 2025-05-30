@@ -177,10 +177,71 @@ def productexceptself(nums):
         
     return res
 
-print(productexceptself([1,2,3,4]))    
+print(productexceptself([1,2,3,4])) 
 
 
-        
+# inp_str = 'aaabbccca'
+# output ='3a2b3c1a'
+
+# # from collections import Counter
+
+# # count = Counter(inp_str)
+# # print(count)
+# out=""
+# seen = set()
+# for i, ch in enumerate(inp_str):
+#     if ch not in seen:
+#         out +=f"{count[ch]}{ch}"
+#         seen.add(ch)
+
+# print(out)  
+
+in_lst = [3,6,9,1,12,34,56,78,89]
+inp_str = 'aaabbccca'
+output ='3a2b3c1a'
+in_lst.sort()
+print(in_lst)
+print(in_lst[1])
 
 
-        
+# import time
+
+# def decorstor_func(func):
+#     def wrapper():
+#         start_time=time.time()
+#         print("before calling the decoratore")
+#         func()
+#         excutation_time=time.time()-start_time
+#         print(excutation_time)
+#         print("after calling the decorator")
+    
+#     return wrapper     
+
+
+# @decorstor_func
+# def say():
+#     print("this is my normal function")
+
+# c = say()
+# c
+# a=(i for i in range(10) if i%2==0)
+
+# print(next(a))
+# print(next(a))
+# print(next(a))
+
+# def flator(b):
+#     a= [1, [2, [3, 4], 5], 6]
+#     for i in a:
+#         if isinstance(i, list):
+#             b.extend(i)
+#             flator(b)
+#         else:
+#             b.append(i)
+            
+
+# print(flator())        
+
+#output --> [1, 2, 3, 4, 5, 6]
+# singlon
+# if large 
