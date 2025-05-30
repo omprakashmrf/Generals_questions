@@ -243,5 +243,15 @@ print(in_lst[1])
 # print(flator())        
 
 #output --> [1, 2, 3, 4, 5, 6]
-# singlon
+# singlon class
 # if large 
+# monolathik and monololoc structure
+# get and filter method
+# MVC stucture
+# micoservices
+# multithreding and multiprocessing 
+# how to implement multithreding 
+
+
+
+
