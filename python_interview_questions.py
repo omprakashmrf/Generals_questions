@@ -275,4 +275,48 @@ def longest_substring(s):
 print(longest_substring("abcabcbb")) 
 
 
+def squared(f):
+    def wrapper(self, *args, **kwargs):
+        result = f(self, *args, **kwargs)
+        result=result**2
+        return (result)
+    return wrapper   
+ 
+# ---- Do not Change ----- #
+class Operations:
+    @squared
+    def multiply(self, a,b):
+        return a*b
+ 
+ 
+print(f"Res is {Operations().multiply(1,2)}")
+ 
+print(f"Res is {Operations().multiply(-1,2)}")  
+
+a=[
+    {
+        "name": "tom",
+        "score": 40
+    },
+        {
+        "name": "sam",
+        "score": 80
+    },
+        {
+        "name": "max",
+        "score": 70
+    }
+]
+
+b=sorted(a, key=lambda x:x["score"])
+print(b[-1]["name"])
+    
+a=[1,2,4,1,4,1,2,5,6,2,1,5,3,5,6]   
+a.sort()
+b = set(a)
+c=list(b)
+print(c[-2])
+
+
+
 
