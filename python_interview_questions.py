@@ -253,5 +253,26 @@ print(in_lst[1])
 # how to implement multithreding 
 
 
+def longest_substring(s):
+    start= max_len=0
+    char_index = {}
+    longest = ""
+    
+    for i, ch in enumerate(s):
+        if ch in char_index and char_index[ch] >= start:
+            start = char_index[ch] +1
+        
+        char_index[ch] =i    
+        
+        if (i-start+1) > max_len:
+            max_len = i- start+1
+            longest = s[start:i+1]
+    
+    
+    return max_len, longest
+
+
+print(longest_substring("abcabcbb")) 
+
 
 
