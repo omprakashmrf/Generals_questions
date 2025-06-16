@@ -30,7 +30,7 @@ flattened = []
 
 for item in data:
     if isinstance(item, list):
-        flattened.extend(item)
+        flattened.extend(flater(item))
     else:
         flattened.append(item)
 
