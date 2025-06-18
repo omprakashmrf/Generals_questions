@@ -318,5 +318,31 @@ c=list(b)
 print(c[-2])
 
 
+a=[
+    {
+        "name": "tom",
+        "score": 40
+    },
+        {
+        "name": "sam",
+        "score": 80
+    },
+        {
+        "name": "max",
+        "score": 70
+    }
+]
+def find_name(b):
+    max_score=a[0]["score"]
+    for i in a:
+        if i["score"] > max_score:
+            max_score = i["score"]
+            name = i["name"]
+    
+    return name
+
+
+print(find_name(a))
+
 
 
