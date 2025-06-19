@@ -13,6 +13,19 @@
 # Generate pattern up to 1000
 generate_pattern(1000)
 
+0 => aa0
+1 => aa1
+2 => aa2
+3 => aa3
+4 => aa4
+5 => aa5
+6 => aa6
+7 => aa7
+8 => aa8
+9 => aa9
+10 => ab0
+11 => ab1
+
 2. modulo operator
 
 3. diffrent type of authentication in django
