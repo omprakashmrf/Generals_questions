@@ -368,4 +368,34 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
         seen[num] = i
 
 
+a=[1, 2, [3,4], [5,6]]
+
+def flattern(lst):
+    result = []
+    #print(lst)
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flattern(item))
+        else:
+            result.append(item)
+    return result
+print(flattern(a))   
+
+Input="aabbccfd"
+#Result=f
+# Result =d
+from collections import Counter
+def non_repetable(a):
+    count=Counter(a)
+    for i in count:
+        if count[i]==1:
+            print(i)
+            break;
+            
+        
+
+(non_repetable(Input))  
+
+NLU, RASAtold, dilogflow methods framework  
+
 
