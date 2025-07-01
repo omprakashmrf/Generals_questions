@@ -399,3 +399,24 @@ def non_repetable(a):
 NLU, RASAtold, dilogflow methods framework  
 
 
+def find_mean_and_median(nums1, nums2):
+    merged = sorted(nums1 + nums2)
+    n = len(merged)
+    
+    # Calculate mean
+    mean = sum(merged) / n
+    
+    # Calculate median
+    if n % 2 == 0:
+        median = (merged[n // 2 - 1] + merged[n // 2]) / 2
+    else:
+        median = merged[n // 2]
+    
+    print(f"Mean: {mean}")
+    print(f"Median: {median}")
+    return mean, median
+
+# Test
+nums1 = [2, 3, 4, 5]
+nums2 = [4, 5, 6, 7]
+find_mean_and_median(nums1, nums2)
