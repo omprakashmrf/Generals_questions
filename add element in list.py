@@ -24,3 +24,19 @@ for i in a:
         output += f"{i}{b[i]}"
     seen.add(i)    
 print(output) 
+
+
+a = ["a","a","b","b","c","c","c","a","a"]
+output="a2b2c3a2"
+count = 1
+output =""
+for i in range(1, len(a)):
+    if a[i] == a[i-1]:
+        count +=1
+    else:
+        output +=f"{a[i -1]}{count}"
+        count = 1 # reset count
+output += a[-1] + str(count)        
+
+print(output)        
+
