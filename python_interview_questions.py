@@ -420,3 +420,82 @@ def find_mean_and_median(nums1, nums2):
 nums1 = [2, 3, 4, 5]
 nums2 = [4, 5, 6, 7]
 find_mean_and_median(nums1, nums2)
+
+Capgemini 
+1. 
+correct ans 
+a = ["a", "a", "b", "b", "c", "c", "c", "a", "a"]
+
+output = ""
+count = 1
+
+for i in range(1, len(a)):
+    if a[i] == a[i - 1]:
+        count += 1
+    else:
+        output += a[i - 1] + str(count)
+        count = 1  # reset count
+
+# Add the last group
+output += a[-1] + str(count)
+
+print(output)  # Output: a2b2c3a2
+
+
+2. 
+a = [[1,2,3], [[4,5,[6]]], [7]]
+output=[1,2,3,4,5,6,7]
+
+def flattern(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flattern(item))
+        else:
+            result.append(item)
+            
+    return result
+
+print(flattern(a))
+
+2. col_a, col_b
+1   	1
+2   	0
+1   	NULL
+0   	1
+
+
+
+3. Employee table
+
+Emp_No	Emp_Name	Salary	Location	Dept_No
+
+101		Graham		10345	New York	40
+
+102		Mike		20436	Toranto		30
+
+103		Dean		15730	Mexico		60
+
+104		John		10000	New York	40
+
+105		Sara		25000	New York	40
+ 
+Department Table:
+
+Dept_No	Dept_Name
+
+30		Sales
+
+40		Marketing
+
+50		Audit
+
+
+SELECT Emp_Name, Salary
+FROM Employee e
+JOIN Department d ON e.Dept_No = d.Dept_No
+WHERE d.Dept_Name = 'Marketing'
+ORDER BY Salary DESC
+OFFSET 1 ROW
+FETCH NEXT 1 ROW ONLY;
+
