@@ -36,7 +36,7 @@ for i in range(1, len(a)):
     else:
         output +=f"{a[i -1]}{count}"
         count = 1 # reset count
-output += a[-1] + str(count)        
+output += a[-1] + str(count)   # adding last group     
 
 print(output)        
 
