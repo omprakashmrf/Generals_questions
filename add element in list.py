@@ -38,5 +38,52 @@ for i in range(1, len(a)):
         count = 1 # reset count
 output += a[-1] + str(count)   # adding last group     
 
-print(output)        
+print(output)    
 
+
+import time
+def decorator(func):
+    def inner(*args, **kwargs):
+        print(args)
+        start_time=time.time()
+        print("start time of the function", start_time)
+        result=func(*args, **kwargs)
+        print(result)
+        end_time = time.time()
+        print("end time of the function", end_time)
+        if (end_time - start_time)  > 3:
+            excution = end_time - start_time
+        else:
+            excution ="excution time is less then 2 sec"
+        print(excution)
+        return result
+    return inner     
+@decorator()
+def sayhello():
+    print("I want o find the excution time")
+    
+sayhello() 
+import copy 
+
+a = [2,4,6,8]
+b=a.copy()
+print(b)
+
+c = copy.deepcopy(a)
+c.append(10)
+print(c)
+print(a)
+
+
+abc = [3,2,4, 6]
+target = 10
+Output: [1,2]
+
+def getindex(nums):
+    seen = {}
+    for i, num  in enumerate(nums):
+        diff = target - nums[i]
+        if diff in seen:
+            return [i, seen[diff]]
+        seen[num] = i    
+print(getindex(abc)) 
