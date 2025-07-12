@@ -510,3 +510,55 @@ important questions
 8. what is Async await 
 
 
+1. Write a function to count the number of unique digits in a number - eg 111 -> 1 121 -> 2 123 -> 3
+
+
+from collections import Counter
+input = "11122221"
+count=Counter(input)
+print(count)
+print(len(count))
+
+ 2. Write a function to return the longest even length word in a sentence.
+ Sample input: Be not afraid of greatness, some are born great, some achieve greatness, and some have greatness thrust upon them.
+  output -> 
+input="Be not afraid of greatness, some are born great, some achieve greatness, and some have greatness thrust upon them."
+
+a=input.split()
+a.sort(key=len)
+
+print(a)
+max_len_word = 0
+for i in a:
+    if len(i) %2==0:
+        max_len_word = max(len(i), max_len_word)
+
+print(max_len_word) 
+
+
+3. Program to flatten the list 
+Input=[1,[2,3, [4, 5]]] 
+# Output = [1,2,3,4,5]
+
+def flatten(arr):
+    result = []
+    for item in arr:
+        if isinstance(item, list):
+            result.extend(flatten(item))
+        else:
+            result.append(item)
+    return result
+print(flatten(Input))  
+
+4. We have a table called BookAuthor. It has two columns Book and Author, Book being unique column. Write a query to find the names of the authors who have written more than 10 books.
+
+book_list=BookAuthor.object.filter(author="Om").count() > 10
+
+6. Given a List of n integers and a number k, find the pairs of numbers in the list such that the difference between the pair is k. 
+Find the optimal solution with and without extra storage.
+
+taget = k
+pair = (1,2) = 1-2
+
+
+
