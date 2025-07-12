@@ -499,3 +499,14 @@ ORDER BY Salary DESC
 OFFSET 1 ROW
 FETCH NEXT 1 ROW ONLY;
 
+important questions
+1. solid principals 
+2. design pattern 
+3. sequence of thread, process, task, etc
+4. asynchronous process
+5. how to finds the aws file is uploaded on s3 bucket 
+6. how to deploy aws lambda in function on aws 
+7. what is aws endpoint.
+
+
+
