@@ -87,3 +87,27 @@ def getindex(nums):
             return [i, seen[diff]]
         seen[num] = i    
 print(getindex(abc)) 
+
+p= "aaabbbcc45aa"
+# output= a3b3c245a2
+
+
+def countsque(s):
+    count=1
+    output=""
+    n = len(s)
+    for i in range(1, n):
+        if s[i-1] == s[i]:
+            count +=1
+        else:
+            if not s[i-1].isdigit():    
+                output +=s[i-1]+str(count)
+            if s[i].isdigit():
+                output += s[i]
+            
+            print(output)  
+            count = 1
+    output +=s[i]+str(count)   
+    return output
+
+print(countsque(p))  
