@@ -111,3 +111,58 @@ def countsque(s):
     return output
 
 print(countsque(p))  
+
+# nput
+actual_response = {
+    "price": 20,
+    "availability": {
+        "code": "instock",
+        "date": "20/12/2025"
+    }
+}
+ 
+expected_response = {
+    "price": 25,
+    "availability": {
+        "code": "outofstock",
+        "date": "20/12/2025"
+    }
+}
+ 
+# output:
+# Field: price
+#   Expected: 25 (int)
+#   Actual  : 20 (int)
+ 
+# Field: availability.code
+#   Expected: outofstock (str)
+#   Actual  : instock (str)
+
+def flattern(input1, parent_key="", sep="."):
+    result ={}
+    for k, v in input1.items():
+        new_key = f"{parent_key}{sep}{k}" if parent_key else k
+        if isinstance(v, dict):
+            result.update(flattern(v, parent_key=new_key, sep=sep))
+        else:
+            result.update({new_key: v})
+    return result
+    
+def comparedict(expected, actual):
+    ed=flattern(expected)
+    ad = flattern(actual)
+    
+    for k, v in ed.items():
+        ev=ed[k]
+        av = ad[k]
+        
+        
+        if ev != av:
+            print(f"fields:{k}" )
+            print(f"  Expected: {ev} ({type(ev).__name__})")
+            print(f"  Actual: {av} ({type(av).__name__})")
+            
+    
+    
+print(flattern(actual_response, parent_key="", sep="."))
+(comparedict(actual_response, expected_response))
