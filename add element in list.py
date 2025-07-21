@@ -112,6 +112,8 @@ def countsque(s):
 
 print(countsque(p))  
 
+
+LTImindtree
 # nput
 actual_response = {
     "price": 20,
