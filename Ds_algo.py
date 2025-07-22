@@ -1,1 +1,1 @@
-
+sliding window ---> problems
