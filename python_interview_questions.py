@@ -560,5 +560,66 @@ Find the optimal solution with and without extra storage.
 taget = k
 pair = (1,2) = 1-2
 
+Pwc internal interview questions --->
+1.  manipulated same list without taking extra var 
+# Original list
+nums = [3, 1, 4, 2, 2, 3, 1, 4, 5, 6]
+print("Original:", nums)
+
+# ✅ 1. Remove duplicates in-place (preserve order)
+seen = set()
+nums[:] = [x for x in nums if not (x in seen or seen.add(x))]
+print("After removing duplicates:", nums)
+
+# ✅ 2. Remove even numbers in-place
+nums[:] = [x for x in nums if x % 2 != 0]
+print("After removing even numbers:", nums)
+
+# ✅ 3. Double each element in-place
+for i in range(len(nums)):
+    nums[i] *= 2
+print("After doubling elements:", nums)
+
+# ✅ 4. Sort the list in-place
+nums.sort()
+print("After sorting:", nums)
+
+# ✅ 5. Reverse the list in-place
+nums.reverse()
+print("After reversing:", nums)
+
+
+
+2.  convert list into tuple ()
+nums = [1, 2, 3, 4]
+nums = tuple(nums)  # Now nums is a tuple
+print(nums)         # Output: (1, 2, 3, 4)
+
+
+3. can i use same var tuple as var for store
+you can, but don't use its bad practice 
+
+: - Great question — if you use a built-in name (like list, dict, tuple, str, etc.) as a variable, the main problem is 
+that you override or shadow the original built-in function. This can lead to unexpected errors and broken code later.
+
+4. if key is not prasent in dict how we can handle without error 
+
+    Use .get() Method (Safest)
+    my_dict = {"a": 1, "b": 2}
+    value = my_dict.get("c", 0)  # returns 0 if key 'c' not found
+    print(value)  # Output: 0
+    🔹 .get(key, default) returns the value if key exists, otherwise returns default (or None if not provided)
+
+5. mutable and unmutable data set in python and group them
+
+| Category  | Types                                                                |
+| --------- | -------------------------------------------------------------------- |
+| Mutable   | `list`, `dict`, `set`, `bytearray`, `defaultdict`, `deque`           |
+| Immutable | `int`, `float`, `bool`, `str`, `tuple`, `frozenset`, `bytes`, `None` |
+
+
+    
+
+
 
 
