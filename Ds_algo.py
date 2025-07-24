@@ -31,7 +31,23 @@ arr = [2, 1, 5, 1, 3, 2]
 k = 3
 print(max_sub_arr_sum(arr, k)) 
 
+#brute fore 
+def longest_k_size_brute(s, k):
+    max_len = 0
+    for i in range(len(s)):
+        char_set = set()
+        for j in range(i, len(s)):
+            char_set.add(s[j])
+            if len(char_set) <= k:
+                max_len = max(max_len, j - i+1)
+            else:
+                break;
+    return max_len    
+s="eceba"
+k = 2      
+print(longest_k_size_brute(s, k))  
 
+# optimal sol
 def longest_k_size(s, k):
     if len(s)< k:
         return 0
@@ -58,20 +74,4 @@ def longest_k_size(s, k):
 s="eceba"
 k = 2        
 print(longest_k_size(s, k))  
-
-
-def longest_k_size_brute(s, k):
-    max_len = 0
-    for i in range(len(s)):
-        char_set = set()
-        for j in range(i, len(s)):
-            char_set.add(s[j])
-            if len(char_set) <= k:
-                max_len = max(max_len, j - i+1)
-            else:
-                break;
-    return max_len    
-s="eceba"
-k = 2      
-print(longest_k_size_brute(s, k))    
-    
+      
