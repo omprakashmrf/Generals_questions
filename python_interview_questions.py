@@ -618,8 +618,92 @@ that you override or shadow the original built-in function. This can lead to une
 | Immutable | `int`, `float`, `bool`, `str`, `tuple`, `frozenset`, `bytes`, `None` |
 
 
+def merge_sorted_arrays(a, b):
+    i, j = 0, 0
+    c = []
+
+    while i < len(a) and j < len(b):
+        if a[i] < b[j]:
+            c.append(a[i])
+            i += 1
+        else:
+            c.append(b[j])
+            j += 1
+
+    # Add remaining elements
+    c.extend(a[i:])
+    c.extend(b[j:])
+
+    return c
+
+# Example
+a = [10, 20, 30]
+b = [20, 35, 40, 45]
+c = merge_sorted_arrays(a, b)
+print(c)  # Output: [10, 20, 20, 30, 35, 40, 45]
+
+
+def merge_and_sort_brute(a, b):
+    c = a + b  # Step 1: Combine
+    n = len(c)
+
+    # Step 2: Brute-force sort (Bubble Sort)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if c[j] > c[j + 1]:
+                c[j], c[j + 1] = c[j + 1], c[j]  # Swap
+
+    return c
+
+# Example
+a = [10, 20, 30]
+b = [20, 35, 40, 45]
+c = merge_and_sort_brute(a, b)
+print(c)  # Output: [10, 20, 20, 30, 35, 40, 45]
+
+def decorator(func):
+    def inner(a, b):
+        try:
+            result=func(a, b)
+        except Exception as e:
+            result = None
+            return (f"b should not be zero {e}")
+        return result    
+    return inner    
+        
+
+@decorator
+def divide(a, b):
+    return a/b
     
+print(divide(4, 2))   
+
+Example: Immutable Type (int behaves like call by value)
+def modify_number(x):
+    x = x + 10
+    print("Inside function:", x)
+
+a = 5
+modify_number(a)
+print("Outside function:", a)
+
+output
+Inside function: 15
+Outside function: 5
 
 
+Example: Mutable Type (list behaves like call by reference)
+def modify_list(lst):
+    lst.append(100)
+    print("Inside function:", lst)
+
+my_list = [1, 2, 3]
+modify_list(my_list)
+print("Outside function:", my_list)
+
+output 
+Inside function: [1, 2, 3, 100]
+Outside function: [1, 2, 3, 100]
 
 
+ 
