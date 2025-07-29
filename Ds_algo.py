@@ -100,4 +100,37 @@ def min_len_sum_subarry(arr, s):
 arr=[3,5,7,8,9,1]
 s=8
 print(min_len_sum_subarry(arr, s))    
+
+# find the permutations of given two string
+
+from collections import Counter
+def getpermutation(s1, s2):
+    len1, len2 = len(s1), len(s2)
+    
+    if len1 > len2:
+        return False
+    
+    count1=Counter(s1)
+    window = Counter(s2[:len1])
+    
+    if count1 == window:
+        return True
+    
+    for i in range(len1, len2):
+        window[s2[i]] +=1
         
+        window[s2[i - len1]] -=1
+        
+        if window[s2[i-len1]]==0:
+           del window[s2[i-len1]]
+        
+        if window==count1:
+            return True
+    return False
+
+s1 ="ab"
+s2 ="eidbbaoo"
+
+print(getpermutation(s1, s2))    
+output--> True
+
