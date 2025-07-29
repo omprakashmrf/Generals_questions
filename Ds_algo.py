@@ -74,4 +74,30 @@ def longest_k_size(s, k):
 s="eceba"
 k = 2        
 print(longest_k_size(s, k))  
-      
+
+#. problem --> find the sum of min len sub array eqaul to s
+# approch --> add one one element into the window and moving farword 
+# and checking len is greater or equal to S
+# deleting the the element from left 
+# and incrementing the left pointer
+# and maintaining the min_len of window 
+def min_len_sum_subarry(arr, s):
+    min_len= float('inf')
+    left=0
+    window_sum=0
+    
+    
+    for right in range(len(arr)):
+        window_sum +=arr[right]
+    
+        while window_sum >= s:
+            min_len=min(min_len, right-left+1)
+            window_sum-=arr[left]
+            left+=1
+    
+    return min_len if min_len != float('inf') else 0
+
+arr=[3,5,7,8,9,1]
+s=8
+print(min_len_sum_subarry(arr, s))    
+        
