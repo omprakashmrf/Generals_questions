@@ -728,6 +728,12 @@ res = [f(2) for f in funcs]
 
 print(res)
 
-[0, 2, 4, 6, 8] 
+not a ans [0, 2, 4, 6, 8]
 
+In Python, closures capture variables by reference, not by value. This means all the lambdas refer to the same variable i, and it will be evaluated when the function is called, not when it's defined. 
+ans =[8,8,8,8]
+
+How to Fix It (Capture i at Definition Time)
+If you want each function to remember its own value of i, you can use a default argument trick:
+funcs = [lambda x, i=i: x*i for i in range(5)]
  
