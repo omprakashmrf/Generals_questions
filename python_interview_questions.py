@@ -706,4 +706,28 @@ Inside function: [1, 2, 3, 100]
 Outside function: [1, 2, 3, 100]
 
 
+nested_list = [1, [2, [3, 4], 5], [2], [4,[3,4,5,[1]]], 8]
+
+
+def flattern_list(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flattern_list(item))
+        else:
+            result.append(item)
+    return result
+print(flattern_list(nested_list))    
+
+funcs = [lambda x: x*i for i in range(5)]
+#print(funcs)
+for f in funcs:
+    print(f(2))
+
+res = [f(2) for f in funcs]
+
+print(res)
+
+[0, 2, 4, 6, 8] 
+
  
