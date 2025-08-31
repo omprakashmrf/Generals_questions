@@ -168,3 +168,30 @@ def comparedict(expected, actual):
     
 print(flattern(actual_response, parent_key="", sep="."))
 (comparedict(actual_response, expected_response))
+
+def log_io(func):
+    def wrapper(*args, **kwargs):
+        print(f"Input: args={args}, kwargs={kwargs}")
+        result = func(*args, **kwargs)
+        print(f"Output: {result}")
+        return result
+    return wrapper
+    
+@log_io
+def calculate(a, b, ops):
+    if ops == "add":
+        return a + b
+    elif ops == "subtract":
+        return a - b
+    elif ops == "multiply":
+        return a * b
+    elif ops == "divide":
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Division by zero"
+    else:
+        return "Error: Invalid operation"
+
+Input: args=(10, 5, 'add'), kwargs={}
+Output: 15
