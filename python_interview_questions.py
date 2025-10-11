@@ -736,4 +736,28 @@ ans =[8,8,8,8]
 How to Fix It (Capture i at Definition Time)
 If you want each function to remember its own value of i, you can use a default argument trick:
 funcs = [lambda x, i=i: x*i for i in range(5)]
+
+CGI coding questions 
+
+def get_pairs(lst, target):
+    seen = set()
+    result = []
+    for num in lst:
+        if target - num in seen:
+            result.append((target-num, num))
+        
+        seen.add(num)
+    return result
+
+print(get_pairs(Input, target))    
+
+s="A man a plan a canal Panama"
+
+def polindrom(s):
+    revs="".join((s.split())[::-1])
+    org=sorted("".join(s.split()))
+    rev=(sorted(revs))
+    return org==rev
+print(polindrom(s))  
+
  
