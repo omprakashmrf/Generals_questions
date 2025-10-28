@@ -760,4 +760,199 @@ def polindrom(s):
     return org==rev
 print(polindrom(s))  
 
- 
+Which inheritance is supported in Python?
+✅ Answer:
+Python supports four types of inheritance:
+
+
+Single Inheritance – One base class and one derived class.
+
+
+Multiple Inheritance – A class inherits from more than one base class.
+
+
+Multilevel Inheritance – A derived class becomes a base for another derived class.
+
+
+Hierarchical Inheritance – Multiple derived classes inherit from the same base class.
+
+
+Hybrid Inheritance – A combination of the above types.
+
+
+💡 Python supports multiple inheritance (unlike Java) because of the Method Resolution Order (MRO) and C3 linearization.
+
+2️⃣ Instance, Static, and Class Methods – and access rules
+✅ Answer:
+Method TypeDecoratorFirst ArgumentAccessesTypical UseInstance Method(default)selfInstance & Class dataNormal methodsClass Method@classmethodclsClass data onlyFactory methodsStatic Method@staticmethodnoneNo access to instance or classUtility/helper methods
+🔹 Accessing rules:
+
+
+Instance methods → can access instance & class methods/static methods.
+
+
+Class methods → can access class methods & static methods.
+
+
+Static methods → can access only static methods (no class/instance).
+
+
+
+3️⃣ How to do horizontal scaling with Django project
+✅ Answer:
+Horizontal scaling = adding more servers (replicas) instead of upgrading one machine.
+Steps to horizontally scale Django:
+
+
+Make Django stateless – Use shared storage for static/media files (like AWS S3).
+
+
+Use a shared database – e.g., PostgreSQL, MySQL, or managed DB service.
+
+
+Session Management – Store sessions in Redis or Memcached.
+
+
+Load Balancer – Nginx, HAProxy, or AWS ELB to distribute requests.
+
+
+Use caching – Redis or Memcached for frequently accessed data.
+
+
+Containerization – Docker + Kubernetes for scaling automatically.
+
+
+
+4️⃣ Demand, Supply, and Prices Problem
+✅ Answer:
+This refers to economic principles affecting pricing:
+
+
+If demand > supply → prices increase.
+
+
+If supply > demand → prices decrease.
+
+
+If demand = supply → price is stable (equilibrium).
+
+
+In coding or ML terms, this can relate to predicting prices based on demand/supply variables.
+
+5️⃣ map() function and adding two lists
+✅ Answer:
+The map() function applies a function to every element of an iterable.
+Example – add two lists element-wise:
+a = [1, 2, 3]
+b = [4, 5, 6]
+result = list(map(lambda x, y: x + y, a, b))
+print(result)   # Output: [5, 7, 9]
+
+💡 map() can take multiple iterables and applies the function pairwise.
+
+6️⃣ Descriptor and Accessor
+✅ Answer:
+Descriptor:
+A Python object that controls attribute access (get, set, delete) in another class.
+Example:
+class Descriptor:
+    def __get__(self, obj, objtype=None):
+        return obj._value
+    def __set__(self, obj, value):
+        obj._value = value
+
+class MyClass:
+    x = Descriptor()
+
+Accessors:
+Methods that access or modify private attributes.
+
+
+Getter → @property
+
+
+Setter → @x.setter
+
+
+Example:
+class Person:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):       # getter
+        return self._name
+
+    @name.setter
+    def name(self, val):  # setter
+        self._name = val
+
+
+7️⃣ What happens if I use /users/223 for PUT and POST methods
+✅ Answer:
+
+
+POST /users/ → Create a new user (no ID yet).
+
+
+PUT /users/223 → Update the existing user with ID = 223.
+
+
+If user 223 does not exist, behavior depends on the API:
+
+
+Some APIs return 404 Not Found
+
+
+Some might create a new resource (not typical REST).
+
+
+
+
+💡 So PUT is idempotent (repeated requests give same result), while POST is not.
+
+8️⃣ What is a Mixin in Django
+✅ Answer:
+A Mixin is a class that provides reusable functionality, meant to be combined with other classes via multiple inheritance.
+Example:
+from django.views import View
+
+class LoginRequiredMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login')
+        return super().dispatch(request, *args, **kwargs)
+
+class DashboardView(LoginRequiredMixin, View):
+    ...
+
+💡 Mixins allow code reuse without full inheritance — like CreateModelMixin, ListModelMixin in Django REST Framework.
+
+9️⃣ Dependency Injection and CSRF Token in Python
+✅ Dependency Injection (DI):
+It means providing dependencies from outside instead of hardcoding them inside a class/function.
+Used in FastAPI, for example:
+from fastapi import Depends
+
+def get_db():
+    db = DBSession()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/users/")
+def read_users(db: Session = Depends(get_db)):
+    return db.query(User).all()
+
+Here, Depends(get_db) injects the DB dependency automatically.
+
+✅ CSRF Token (Cross-Site Request Forgery):
+A security mechanism in Django that ensures that POST, PUT, DELETE requests are from trusted sources (not malicious sites).
+Django provides it via:
+
+
+{% csrf_token %} in HTML form.
+
+
+Middleware: django.middleware.csrf.CsrfViewMiddleware.
