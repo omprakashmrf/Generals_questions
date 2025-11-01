@@ -976,6 +976,15 @@ def can_split_equal_sum(arr):
 arr = [1, 2, 3, 3]
 print(can_split_equal_sum(arr))  # True → [1,2,3] and [3]
 
+
+
+| Data Type               | Example                  | Search Operation | Average Time Complexity | Worst Case                                     | Explanation                                            |
+| ----------------------- | ------------------------ | ---------------- | ----------------------- | ---------------------------------------------- | ------------------------------------------------------ |
+| **list**                | `[1, 2, 3, 4]`           | `x in list`      | **O(n)**                | **O(n)**                                       | Linear search — must check every element until found   |
+| **tuple**               | `(1, 2, 3, 4)`           | `x in tuple`     | **O(n)**                | **O(n)**                                       | Same as list — sequential check (tuples are immutable) |
+| **set**                 | `{1, 2, 3, 4}`           | `x in set`       | **O(1)**                | **O(n)**                                       | Hash table used — constant time lookup on average      |
+| **dict**                | `{'a': 1, 'b': 2}`       | `key in dict`    | **O(1)**                | **O(n)**                                       | Keys are stored in a hash map, so key lookup is fast   |
+| **dict (value search)** | `value in dict.values()` | **O(n)**         | **O(n)**                | Values are not hashed — linear search required |                                                        |
               
 
 
