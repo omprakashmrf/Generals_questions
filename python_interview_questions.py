@@ -956,3 +956,27 @@ Django provides it via:
 
 
 Middleware: django.middleware.csrf.CsrfViewMiddleware.
+
+check if an array can be split into two subarrays whose sums are equal,              
+def can_split_equal_sum(arr):
+    total = sum(arr)
+    left_sum = 0
+
+    for i in range(len(arr) - 1):  # at least one element in each side
+        left_sum += arr[i]
+        right_sum = total - left_sum
+
+        if left_sum == right_sum:
+            print("Split point:", i, "| Left:", arr[:i+1], "| Right:", arr[i+1:])
+            return True
+
+    return False
+
+
+arr = [1, 2, 3, 3]
+print(can_split_equal_sum(arr))  # True → [1,2,3] and [3]
+
+              
+
+
+              
