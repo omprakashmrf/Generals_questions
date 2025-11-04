@@ -987,5 +987,11 @@ print(can_split_equal_sum(arr))  # True → [1,2,3] and [3]
 | **dict (value search)** | `value in dict.values()` | **O(n)**         | **O(n)**                | Values are not hashed — linear search required |                                                        |
               
 
+lambda + map()
+result = list(map(lambda x, y: x + y, list1, list2))
+print(result)
+
+
+
 
               
