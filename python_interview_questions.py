@@ -992,6 +992,15 @@ result = list(map(lambda x, y: x + y, list1, list2))
 print(result)
 
 
+a = [1,2,1,1,1,1,2,2]
+
+window_size=3
+from collections import Counter
+
+for i in range(len(a)):
+    b=((set(a[i:window_size+i])))
+    print(len(b))
+
 
 
               
