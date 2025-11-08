@@ -1001,6 +1001,19 @@ for i in range(len(a)):
     b=((set(a[i:window_size+i])))
     print(len(b))
 
+# find the duplicates
+a =[1,7,2,2,2,4,4,4,5,5,5,6,6,6]
 
+dupl = [x for x in set(a) if a.count(x) > 1]
+print(dupl)
 
-              
+visited = set()
+dupl = set()
+for i in a:
+    if i not in visited:
+        visited.add(i)
+    else:
+        dupl.add(i)
+
+print(dupl)
+print(visited)
