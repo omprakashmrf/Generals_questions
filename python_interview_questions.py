@@ -1035,3 +1035,18 @@ print(res)
 
 pairs=[(x, y) for x in a for y in a if x+y==target and x < y]
 print(pairs)
+
+# sort the dict by value
+a = {"name": 3, "age": 45, "india_rs": 32}
+print(a.values())
+sorted_dict=dict(sorted(a.items(), key=lambda x : x[0]))
+print(sorted_dict)
+
+# can split into two sub list if sum are equal 
+a = [2,4,6,3,2,7]
+
+for i in range(len(a)):
+    left_sub = (a[:i])
+    right_sub = (a[i:])
+    if sum(left_sub) == sum(right_sub):
+        print("break point of this list", "fist_list", left_sub, "second list", right_sub)
