@@ -1017,3 +1017,21 @@ for i in a:
 
 print(dupl)
 print(visited)
+
+# find the missing number 
+
+a =[4,6,8,2,3,4]
+
+target =10
+res = []
+vis = set()
+for i in a:
+    diff = target - i
+    if diff in vis:
+        res.append((i, diff))
+    else:
+        vis.add(i)
+print(res)        
+
+pairs=[(x, y) for x in a for y in a if x+y==target and x < y]
+print(pairs)
