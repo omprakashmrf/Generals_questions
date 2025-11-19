@@ -1050,3 +1050,96 @@ for i in range(len(a)):
     right_sub = (a[i:])
     if sum(left_sub) == sum(right_sub):
         print("break point of this list", "fist_list", left_sub, "second list", right_sub)
+
+Select related vs prefetch_related
+select_related and prefetch_related in Django ORM (with examples)
+
+These two are used for optimizing queries when accessing related models.
+
+I’ll explain both — very simple, very clear 👇
+
+✅ 1. select_related (JOIN)
+
+Use when the relation is ForeignKey or OneToOneField.
+
+✔ Works for one-to-one
+✔ Works for many-to-one
+✔ Performs SQL JOIN
+✔ Returns one query only
+
+📌 Example Models
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+❌ Without select_related()
+books = Book.objects.all()
+
+for book in books:
+    print(book.title, book.author.name)
+
+
+This causes N+1 queries (very slow).
+
+✅ With select_related()
+books = Book.objects.select_related('author')
+
+for book in books:
+    print(book.title, book.author.name)
+
+
+👉 Only 1 query
+👉 Django fetches Author together using JOIN
+
+✅ 2. prefetch_related (Separate Queries + Python merge)
+
+Use when the relation is:
+
+✔ ManyToManyField
+✔ Reverse ForeignKey (one-to-many)
+✔ When multiple objects must be fetched separately
+
+Does NOT use JOIN.
+Runs 2 queries, but avoids N+1 problem.
+
+📌 Example Models
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+
+class Chapter(models.Model):
+    title = models.CharField(max_length=100)
+    book = models.ForeignKey(Book, related_name="chapters", on_delete=models.CASCADE)
+
+❌ Without prefetch_related()
+books = Book.objects.all()
+
+for book in books:
+    for chapter in book.chapters.all():
+        print(chapter.title)
+
+
+Causes many queries.
+
+✅ With prefetch_related()
+books = Book.objects.prefetch_related('chapters')
+
+for book in books:
+    for chapter in book.chapters.all():
+        print(book.title, chapter.title)
+
+
+👉 Runs 2 optimized queries, no N+1 issue.
+
+💯 Clean Example with Both
+books = (
+    Book.objects
+    .select_related("author")       # FK → JOIN
+    .prefetch_related("chapters")   # reverse FK → separate query
+)
+
+
+
+
