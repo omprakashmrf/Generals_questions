@@ -8,3 +8,12 @@ select * from emaployeeonfo where emplname LIKE '____a'
 
 oprator  -> LIKE 
 wildcard --> '_'
+
+
+1. Find the 2nd highest salary from an employee table
+
+SELECT MAX(salary)
+FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+
+2 . 
