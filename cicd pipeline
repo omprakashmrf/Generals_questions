@@ -1,0 +1,20 @@
+CI → Continuous Integration
+
+    Developers push code frequently to a shared repo.
+    Automated build + test pipeline runs.
+    Ensures code is always in a releasable state
+
+CD → Continuous Delivery / Continuous Deployment
+
+    Continuous Delivery:
+          Code is automatically tested & packaged.
+          Deployment requires manual approval.
+    Continuous Deployment:
+          Code is automatically deployed to production with NO manual approval.
+
+
+
+  Standard CI/CD Pipeline Flow (End-to-End)
+      Developer → Git Push → CI Pipeline → Tests → Build → Artifact → CD Pipeline → Deploy → Monitoring
+  
+  
