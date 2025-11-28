@@ -16,4 +16,19 @@ SELECT MAX(salary)
 FROM employees
 WHERE salary < (SELECT MAX(salary) FROM employees);
 
-2 . 
+
+# write the sql query for thoes employee name and manager name whoes salary is greater then manager salary
+Employee
+name, id, salry, manager_id,
+om     1  10k.     2
+jhon   2  5k       3
+kevin  3. 15k      null
+
+2. Select e.name AS employee_name
+          e.salary AS employee_salary
+          m.name AS manager_name 
+          m.salary AS manager_salary
+from Employee e 
+JOIN Employee m
+       on e.manager_id = m.id
+where e.salary > m.salary
