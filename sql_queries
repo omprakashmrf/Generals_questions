@@ -32,3 +32,15 @@ from Employee e
 JOIN Employee m
        on e.manager_id = m.id
 where e.salary > m.salary
+
+
+# find the sql query max salary of employee under each manager  
+select manager_id, name AS Emplyee_name
+      salary
+      from (select e*, row_number() over(
+          partition by manager_id,
+          order by salary DESC) AS rn
+            from employee e
+            where manager_id IS not null
+) t
+where rn =1;
