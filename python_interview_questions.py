@@ -1141,5 +1141,40 @@ books = (
 )
 
 
+A dataclass in Python is a decorator used to automatically generate common special methods for classes that are mainly used to store data.
 
+It is part of the dataclasses module (introduced in Python 3.7).
+
+📌 Why dataclass?
+
+Normally, when you write a class to store data, you must manually write:
+
+__init__
+
+__repr__
+
+__eq__
+...and sometimes more methods.
+
+A @dataclass creates these automatically.
+
+🧩 Example Without dataclass
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return f"Person(name={self.name}, age={self.age})"
+
+🧩 Same Example Using dataclass
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    name: str
+    age: int
+
+p = Person("John", 30)
+print(p)  # Person(name='John', age=30)
 
