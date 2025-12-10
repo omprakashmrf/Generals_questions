@@ -1178,3 +1178,36 @@ class Person:
 p = Person("John", 30)
 print(p)  # Person(name='John', age=30)
 
+# LRU chahes 
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = OrderedDict()
+    
+    def get(self, key):
+        if key not in self.cache:
+            return -1
+        self.cache.move_to_end(key)
+        return self.cache[key]
+    
+    def put(self, key, value):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        
+        self.cache[key] = value
+        
+        if len(self.cache) > self.capacity:
+            self.cache.popitem(last=False)
+        
+l=LRUCache(2)
+l.put(1, 1)
+print(l.get(3))
+l.put(2, 2)
+print(l.get(3))
+l.put(3, 3)
+print(l.get(3))
+l.put(4, 4)
+
+                                                                                          
+
