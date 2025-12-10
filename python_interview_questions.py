@@ -1209,5 +1209,18 @@ l.put(3, 3)
 print(l.get(3))
 l.put(4, 4)
 
+# flatten dict  
+def flatten(d, parent_key="", sep="."):
+    items = {}
+    for k, v in d.items():
+        new_key = f"{parent_key}{sep}{k}" if parent_key else k
+        if isinstance(v, dict):
+            items.update(flatten(v, new_key, sep=sep))
+        else:
+            items[new_key] = v
+    return items
+
+print(flatten({"a": {"b": 1, "c": {"d":2}}, "e":3}))
+ 
                                                                                           
 
