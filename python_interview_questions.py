@@ -1241,6 +1241,23 @@ def detectcycle(head: Node):
     
     return -1
 
+# merge the intervals
+def mergeintervals(intervals):
+    if not intervals:
+        return []
+    intervals.sort(key=lambda x: x[0])
+    res=[intervals[0]]
+    for s, e in (intervals[1:]):
+        e_start, e_end= res[-1]
         
+        if s <= e_end:
+            res[-1][1] = max(e, e_end)
+        else:
+            res.append([s, e])
+    return res
+    
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+print(mergeintervals(intervals))         
                                                                                           
 
