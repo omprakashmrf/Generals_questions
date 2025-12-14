@@ -1221,6 +1221,26 @@ def flatten(d, parent_key="", sep="."):
     return items
 
 print(flatten({"a": {"b": 1, "c": {"d":2}}, "e":3}))
- 
+
+
+class Node:
+    def __init__(self, data, nxt):
+        self.data = data 
+        self.next = nxt
+
+def detectcycle(head: Node):
+    head = Node()
+    slow = fast = head
+    while fast and fast.next:
+        slow =  slow.next
+        fast = fast.next.next
+    
+        if slow is fast:
+            slow2 = slow.next
+            return slow2
+    
+    return -1
+
+        
                                                                                           
 
