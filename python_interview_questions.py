@@ -1259,5 +1259,22 @@ def mergeintervals(intervals):
 intervals = [[1,3],[2,6],[8,10],[15,18]]
 
 print(mergeintervals(intervals))         
-                                                                                          
+
+
+def lonestnonrepeat(s):
+    seen = {}
+    left = 0
+    best = (0, 0)
+    
+    for i, ch in enumerate(s):
+        if ch in seen and seen[ch] >= left:
+            left = seen[ch] + 1
+        seen[ch] = i
+        if i - left +1 > best[1] -best[0]:
+            best = (left, i +1)
+        
+    return s[best[0]: best[1]]
+s = "omprakash"
+print(lonestnonrepeat(s))    
+        
 
