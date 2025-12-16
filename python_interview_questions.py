@@ -1276,5 +1276,24 @@ def lonestnonrepeat(s):
     return s[best[0]: best[1]]
 s = "omprakash"
 print(lonestnonrepeat(s))    
-        
 
+# retry the wrapper 
+import time
+from functool import wrap
+
+def retry(max_attempt=3, delay = 0.5, exceptions=(Exception,)):
+    def deco(f):
+        @wrap(f)
+        def wrapper(*args, **kwargs):
+            for i in range(1, max_attempt+1):
+                try:
+                    res = f(*args, **kwargs)
+                    return True, res, False
+                except exceptions as e:
+                    last_exc = e
+                    if i < max_attempt:
+                        time.sleep(delay)
+                    else:
+                        return False, e, True
+        return wrapper
+    return deco  
