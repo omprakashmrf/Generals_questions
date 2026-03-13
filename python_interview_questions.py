@@ -1297,3 +1297,30 @@ def retry(max_attempt=3, delay = 0.5, exceptions=(Exception,)):
                         return False, e, True
         return wrapper
     return deco  
+
+ 
+def longest_substring(s):
+    max_len =0
+    seen = {}
+    left = 0
+    longest = ""
+    
+    for right, ch in enumerate(s):
+        if ch in seen and seen[ch] >=left:
+           left = seen[ch] +1
+        seen[ch] = right
+        
+        if (right -left +1) > max_len:
+            max_len = max(max_len, right -left +1)
+            longest  = s[left:right+1]
+    
+    return max_len, longest
+
+
+s = "abcdfdretrgfgfgkskskdfghj"
+print(longest_substring(s))
+        
+ 
+ 
+
+ 
