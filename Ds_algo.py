@@ -134,3 +134,49 @@ s2 ="eidbbaoo"
 print(getpermutation(s1, s2))    
 output--> True
 
+
+class Node():
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
+    
+def reverse_linkedlist(head):
+    prev = None
+    curr = head
+    
+    while curr:
+        nxt = curr.next
+        curr.next = prev
+        
+        prev = curr
+        curr = nxt
+    return prev
+
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val,  end=" --> ")
+        curr = curr.next
+    print(None)
+
+    
+# create linked list 1-->2-->3-->4-->None
+
+# head = Node(1)
+# head.next = Node(2)
+# head.next.next = Node(3)
+# head.next.next.next = Node(4)
+
+head = Node(10)
+#printlinked list
+print_list(head)
+
+reverse_list =(reverse_linkedlist(head))
+4-->3-->2-->1-->None
+print_list(reverse_list)
+
+
+
+
+        
