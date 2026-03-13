@@ -177,6 +177,43 @@ reverse_list =(reverse_linkedlist(head))
 print_list(reverse_list)
 
 
+class Node:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
+def detect_cyclic(head):
+    slow = fast = head
+    
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        
+        if slow == fast:
+            return True
+    return False
+
+
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(1)
+
+print("Cycle present:", detect_cyclic(head))
+
+
+
+head2 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+head2.next = node2
+node2.next = node3
+node3.next = node4
+# creating cycle: 4 → 2
+node4.next = node2
+
+print("Cycle present:", detect_cyclic(head2))
 
         
