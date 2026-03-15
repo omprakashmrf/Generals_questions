@@ -216,4 +216,19 @@ node4.next = node2
 
 print("Cycle present:", detect_cyclic(head2))
 
+
+def merge_interval(intervals):
+    intervals.sort(key=lambda x:x[0])   
+    merged = []
+    for interval in intervals:
+        if not merged or merged[-1][1] < interval[0]:
+            merged.append(interval)
+        else:
+            merged[-1][1] = max(merged[-1][1], interval[1])
+    return merged 
+
+intervals = [[1,3], [2,5], [6,8], [12, 15]]   
+print(merge_interval(intervals))
+output  = [[1, 5], [6, 8], [12, 15]]
+
         
