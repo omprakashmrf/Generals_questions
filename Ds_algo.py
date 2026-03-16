@@ -231,4 +231,44 @@ intervals = [[1,3], [2,5], [6,8], [12, 15]]
 print(merge_interval(intervals))
 output  = [[1, 5], [6, 8], [12, 15]]
 
+
+
+from collections import OrderedDict
+
+class LRUcache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = OrderedDict()
+        
+    def get(self, key):
+        if not key in self.cache:
+            return -1
+        self.cache.move_to_end(key)
+        return self.cache[key]
+    
+    def put(self, key, value):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        
+        self.cache[key] = value
+        
+        if len(self.cache) > self.capacity:
+            self.cache.popitem(last=False)
+
+lru = LRUcache(2)
+lru.put(1, 1)
+lru.put(2, 2)
+
+print(lru.get(1))  # expected 1
+
+lru.put(3, 3)      # removes key 2
+
+print(lru.get(2))  # expected -1
+
+lru.put(4, 4)      # removes key 1
+
+print(lru.get(1))  # -1
+print(lru.get(3))  # 3
+print(lru.get(4))  # 4           
+            
         
