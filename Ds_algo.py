@@ -269,6 +269,20 @@ lru.put(4, 4)      # removes key 1
 
 print(lru.get(1))  # -1
 print(lru.get(3))  # 3
-print(lru.get(4))  # 4           
+print(lru.get(4))  # 4  
+
+
+def binary_search(arr, target):
+    left, right  = 0, len(arr)-1
+    while left < right:
+        mid = (left+right) //2        
+        if arr[mid] == target:
+            return mid
+        
+        elif arr[mid] < target:
+            left = mid +1
+        else:
+            right =mid -1
+    return -1
             
         
