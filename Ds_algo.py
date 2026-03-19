@@ -284,5 +284,16 @@ def binary_search(arr, target):
         else:
             right =mid -1
     return -1
-            
+
+import heapq
+from collections import Counter
+# find the k frequest number from list
+def k_frequent(arr, k):
+    count = Counter(arr)
+    print(count)
+    return heapq.nlargest(k, count.keys(), key=count.get)
+
+print(k_frequent([2,2,2,2,4,4,4,4,5,5,6,6,6,7,7,7,7], 3))    
+    
+    
         
