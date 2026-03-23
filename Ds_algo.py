@@ -295,5 +295,20 @@ def k_frequent(arr, k):
 
 print(k_frequent([2,2,2,2,4,4,4,4,5,5,6,6,6,7,7,7,7], 3))    
     
+class MyQueue:
+    def __init__(self):
+        self.s1 = []
+        self.s2 = []
     
+    def push(self, x):
+        self.s1.append(x)
+    
+    def pop(self):
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+        
+        return self.s2.pop()
+
+
         
