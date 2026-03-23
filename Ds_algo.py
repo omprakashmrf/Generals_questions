@@ -307,6 +307,22 @@ class MyQueue:
         if not self.s2:
             while self.s1:
                 self.s2.append(self.s1.pop())
+
+
+from collections import deque
+class MyQueue:
+    def __init__(self):
+        self.q = deque
+    
+    def push(self, x):
+        self.q.append(x)
+        for _ in range(len(q)-1):
+            self.q.append(self.q.popleft())
+        return self.q
+    
+    def pop(self):
+        return self.q.popleft()
+        
         
         return self.s2.pop()
 
