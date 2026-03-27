@@ -1320,7 +1320,13 @@ def longest_substring(s):
 s = "abcdfdretrgfgfgkskskdfghj"
 print(longest_substring(s))
         
- 
+select Max(salary) from Employee where Salary < (select max(salary) from employee) 
+
+
+
+               
+
+               
  
 
  
