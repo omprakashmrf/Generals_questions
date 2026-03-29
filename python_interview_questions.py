@@ -1322,11 +1322,23 @@ print(longest_substring(s))
         
 select Max(salary) from Employee where Salary < (select max(salary) from employee) 
 
+# product except the itself
+def except_product(nums):
+    res=[1]*len(nums)
+    
+    left = 1
+    for i in range(len(nums)):
+        res[i] = left 
+        left *= nums[i]
+        print(res)
+    
+    right =1
+    for i in range(len(nums)-1, -1, -1):
+        res[i] *= right
+        right *=nums[i]
+        print(res)
+    
+    return res    
 
-
-               
-
-               
- 
-
- 
+nums=[1,2,3,4,5]
+print(except_product(nums))
