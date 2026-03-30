@@ -1352,4 +1352,15 @@ def rotate_arry(a, k):
     print(a)
 
 rotate_arry(a, 3)
-        
+
+ # find the plindrom
+def poilindrom(s):
+    s = "".join(c.lower() for c in s if c.isalnum())
+    print(s)
+    rev_s = s[::-1]
+    print(s==rev_s)
+
+poilindrom("i raR I") 
+
+
+ 
