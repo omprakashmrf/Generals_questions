@@ -1342,3 +1342,14 @@ def except_product(nums):
 
 nums=[1,2,3,4,5]
 print(except_product(nums))
+
+# rotate array from any element 
+a =[1,2,3,4,5]
+
+def rotate_arry(a, k):
+    k= len(a)%k
+    a[:] = a[-k:] + a[:-k]
+    print(a)
+
+rotate_arry(a, 3)
+        
