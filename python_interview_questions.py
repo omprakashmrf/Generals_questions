@@ -1372,4 +1372,17 @@ def next_power_of_2(n):
     return power    
 
 print(next_power_of_2(128))
- 
+
+
+def second_largest(nums):
+    if len(nums) < 2:
+        return None
+    first = second = float('-inf')    
+    for n in nums:
+        if n > first:
+            second = first
+            first = n
+        elif first > n > second:
+            second = n            
+    return second
+print(second_largest([10, 20, 4, 45, 99]))  # 45
