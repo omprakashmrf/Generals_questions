@@ -16,3 +16,21 @@ def consucutivity_lenth(nums):
     return longest
 
 print(consucutivity_lenth([2,3,4,5,7,78,8,9,0,1,2,3,4,5,6,7,8]))
+
+
+def lengthOfLongestSubstring(self, s: str) -> int:
+        longest = 0
+        char_index = {}
+        max_len = 0
+        left = 0
+
+        for right, ch in enumerate(s):
+            if ch in char_index and char_index[ch] >= left:
+                left = char_index[ch] +1
+
+            char_index[ch]=right
+
+            if right - left +1 > max_len :
+                max_len = right -left+1
+                longest  = s[left:right+1]
+        return max_len
