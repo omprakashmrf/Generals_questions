@@ -1,1 +1,20 @@
+def consucutivity_lenth(nums):
+    num_set = set(nums)
+    longest = 0
+    
+    
+    for num in num_set:
+        #check the sequence
+        if num -1 not in num_set:
+            current = num
+            lenght = 1
+            
+            while current +1 in num_set:
+                current +=1
+                lenght +=1
+        
+            longest = max(longest, lenght)
+    
+    return longest
 
+print(consucutivity_lenth([2,3,4,5,7,78,8,9,0,1,2,3,4,5,6,7,8]))
