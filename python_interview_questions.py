@@ -1386,3 +1386,13 @@ def second_largest(nums):
             second = n            
     return second
 print(second_largest([10, 20, 4, 45, 99]))  # 45
+
+
+ def printlist(val, list=[]):
+    list.append(val)
+    return list
+
+ Final Output:
+list1 = [10, "a"]
+list2 = [123]
+list3 = [10, "a"]
