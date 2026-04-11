@@ -1396,3 +1396,72 @@ print(second_largest([10, 20, 4, 45, 99]))  # 45
 list1 = [10, "a"]
 list2 = [123]
 list3 = [10, "a"]
+
+
+class A:
+	def add(self,a,b,c):
+	    return a+b+c
+
+class B:
+	def add(self,a,b):
+		return a+b
+
+class C(B,A):
+    def add(self, a, b, c):
+        return super().add(a, b)+c
+
+
+c = C()
+print(c.add(2,3))
+
+Question:
+ Given a dictionary where keys are single lowercase letters and values are strings, write a function to modify the dictionary by appending the digit "1" to each key while keeping the values unchanged.
+Example:
+ Input:
+ dict1 = {"a": "apple", "b": "banana", "c": "cherry"}
+Output:
+ {"a1": "apple", "b1": "banana", "c1": "cherry"}
+Constraints:
+Keys are strings
+Values should remain unchanged
+Return a new dictionary (do not modify the original one in-place)
+
+
+def modify_dict(dict1):
+    result = {}
+    
+    for key, value in dict1.items():
+        print(key, value)
+        new_key = key + "1"
+        result[new_key] = value
+    return result    
+
+dict1 = {"a": "apple", "b": "banana", "c": "cherry"}
+print(modify_dict(dict1))
+
+
+Question:
+ Given two lists of integers L1 and L2 of equal length, write a function that returns a new list where each element is the sum of the corresponding elements from both lists.
+Example:
+ Input:
+ L1 = [1, 2, 3, 4, 5]
+ L2 = [2, 3, 4, 5, 6]
+Output:
+ [3, 5, 7, 9, 11]
+Constraints:
+Both lists will be of the same length
+Elements are integers
+The function should return a new list without modifying the original lists
+
+def add_two_list(l1, l2):
+    result = []
+    for num1, num2 in zip(l1, l2):
+        print(num1, num2)
+        result.append(num1+num2)
+    return result    
+        
+
+
+L1 = [1, 2, 3, 4, 5]
+L2 = [2, 3, 4, 5, 6]
+print(add_two_list(L1, L2))        
