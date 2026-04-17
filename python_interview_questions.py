@@ -1465,3 +1465,43 @@ def add_two_list(l1, l2):
 L1 = [1, 2, 3, 4, 5]
 L2 = [2, 3, 4, 5, 6]
 print(add_two_list(L1, L2))        
+
+from fastAPI import FastAPI
+import sqllite
+
+app = FastAPI()
+
+def get_db():
+    try:
+        yield sqllite.connect()
+    
+   
+    return conn
+
+@app.get("/student")
+def get_student(depart_name:str):
+    conn = get_db()
+    cursor = conn.cursor()
+    try:
+        query = """
+        select s.student_id, s.student_name, s.dob from student s
+        join  department d on s.department_id=d.depart_id
+        where d.department_name= ?
+        """
+        cursor.excute(query, (depart_name))
+        
+        rows=cursor.fetchall()
+        data = []
+        for row in rows:
+            result={"student_id": row["student_id"],
+            "student_name": row["student_name"],
+            "dob": row["dob"]
+            }
+            data.append(result)
+        
+        return {"data": data, "success" True}  
+    except Exception as e:
+        raise HttpEception(status)
+    finally:
+        conn.close()
+  
