@@ -1504,4 +1504,48 @@ def get_student(depart_name:str):
         raise HttpEception(status)
     finally:
         conn.close()
-  
+
+
+def fibbonoci_gen(n):
+    a, b = 0, 1
+    for i in range(n):
+        yield a
+        a, b = b, a+b
+
+
+occur=fibbonoci_gen(10) 
+print(next(occur))
+print(next(occur))
+print(next(occur))
+print(next(occur))
+print(next(occur))
+
+s =  "abaaabaabaaa"
+arr = ["ab", "aa"]
+
+def count_substring(s, arr):
+    result = {}
+    for key in arr:
+        result.update({key:0}
+        )
+    print(result)    
+    
+    for key in arr:
+        l=len(key)
+        for i in range(len(s)-l+1):
+            sub=s[i:i+l]
+            if sub == key:
+                result[key] +=1
+    return result            
+
+print(count_substring(s, arr))
+
+Author = name
+
+Books = autor_name, book_name 
+
+top_autor=Author.object.annotate(
+    book_count = Count('books')).
+    order_by=('-book_count').first()
+
+print(top_author.name, top_author.book_count)    
