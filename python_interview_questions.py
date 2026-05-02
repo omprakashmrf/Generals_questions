@@ -1549,3 +1549,20 @@ top_autor=Author.object.annotate(
     order_by=('-book_count').first()
 
 print(top_author.name, top_author.book_count)    
+
+
+from fastapi import FastAPI, webSocket
+app = FastAPI()
+conn = []
+
+@app.websocket("/ws")
+def chatwebsocket(ws: webSocket):
+    ws.accept()
+    conn.append(ws)
+    try:
+        msg= ws.receive_text()
+        for con in conn:
+            con.send_text(msg)
+    except:
+        conn.remove(ws)
+        	
