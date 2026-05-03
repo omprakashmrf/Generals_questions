@@ -1565,4 +1565,51 @@ def chatwebsocket(ws: webSocket):
             con.send_text(msg)
     except:
         conn.remove(ws)
+
+   
+class Person:
+    def __init__(self):
+        self.__salary = 50000   # private
+
+p = Person()
+print(p._Person__salary)   # ⚠️ Works (name mangling)   
+“Name mangling is a mechanism in Python where variables with double underscore (__var) are internally renamed to avoid accidental access or name conflicts.”
+   
+Type	Syntax	Access without function
+Public	var	✅ Direct
+Protected	_var	✅ Direct (not recommended)
+Private	__var	⚠️ Via _ClassName__var   
+
+
+Access modifire 
+#public
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age 
+        
+    
+
+class Employee(Person):
+    def __init__(self, name, age, salary):
+        super().__init__(name, age)
+        self.__salary = salary 
+        
+    def get_salary(self):
+        return self.__salary
+    
+emp =Employee("op", 30, 10000)
+print(emp.name)
+
+        
+    
+p = Person()
+print(p.name)
+
+protected
+
+
+“For 10 URLs, multithreading works efficiently because network calls release the GIL. So threads can run concurrently. However, for large-scale I/O tasks, I would prefer async programming for better performance and scalability.”   
+   
         	
