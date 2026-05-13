@@ -1611,5 +1611,54 @@ protected
 
 
 “For 10 URLs, multithreading works efficiently because network calls release the GIL. So threads can run concurrently. However, for large-scale I/O tasks, I would prefer async programming for better performance and scalability.”   
-   
+
+ import time 
+
+def rate_limiter(limit, window):
+    call = []
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            current_time = time.time()
+            
+            while call and call[0] <= current_time - window:
+                call.pop(0)
+            
+            if len(call) >= limit:
+                return "rate limit exceeded"
+            
+            call.append(current_time)
+            
+            return func(args, **kwargs)
+        return wrapper
+    return  decorator   
+    
+    
+    
+
+@rate_limiter(limit=3, window=10)
+def api_call(self):
+    return "API scuccess"
+
+
+print(api_call())
+print(api_call())
+print(api_call())
+print(api_call())
+
+
+a = [1,2,3,4]
+# a = [1, [2, 3]] 
+
+
+import copy
+
+shallow_copy=copy.copy(a)
+deep_copy=copy.deepcopy(a)
+#a[1][0] = 'A'
+a[2] = 5
+# print(a)
+print(shallow_copy)
+print(deep_copy)
+
+      
         	
