@@ -1660,5 +1660,56 @@ a[2] = 5
 print(shallow_copy)
 print(deep_copy)
 
-      
-        	
+a= [10,20,3,0,1,4,5,0,0,9] 
+
+non_zero = []
+zero = []
+for i in  a:
+    if i==0:
+        zero.append(i)
+    else:
+        non_zero.append(i)
+
+data =  non_zero + zero
+print(data)
+
+#  find the subarray with the largest sum, and return its sum. 
+num = [-2,1,-3,4,-1,2,1,-5,4] 
+# Output: 6
+max_sum = num[0]
+current_sum = num[0]
+
+for i in num[1:]:
+    current_sum=max(i, current_sum +i)
+    max_sum = max(max_sum, current_sum)
+print(max_sum)
+
+name = "microsoft"
+
+stack = []
+for ch in name:
+    stack.append(ch)
+print("sfter stack opration")    
+if stack:
+    print(stack.pop() + "".join(stack))
+
+
+queue = []
+for ch in name:
+    queue.append(ch)
+
+print(queue)
+first=queue.pop(0)
+print(first)
+queue.append(first)
+print("".join(queue))
+
+
+# print(name)    
+
+
+
+
+# for i in name:
+#     rev = i + rev
+# print(rev)  
