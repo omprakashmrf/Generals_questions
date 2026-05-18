@@ -1712,4 +1712,30 @@ print("".join(queue))
 
 # for i in name:
 #     rev = i + rev
-# print(rev)  
+# print(rev)
+
+Expected_out = [[None, 150], ['Alice', 250], ['Bob', 300]] 
+users = [
+    [1, "Alice"],
+    [2, "Bob"],
+    [3, "Charlie"]
+]
+ 
+orders = [
+    [104, 1, 250],
+    [102, 2, 300],
+    [101, 4, 150]
+]
+
+user_map = {}
+for user_id,  name in users:
+    # print(user_id, name)
+    user_map[user_id] = name
+
+result = []
+for order_id, user_id, total in orders:
+    # print(order_id, user_id, total)
+    name = user_map.get(user_id, None)
+    result.append([name, total])
+result.sort(key=lambda x:x[1])
+
