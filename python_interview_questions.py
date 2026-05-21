@@ -1739,3 +1739,38 @@ for order_id, user_id, total in orders:
     result.append([name, total])
 result.sort(key=lambda x:x[1])
 
+
+
+a = [2,9,45,3,6]
+map(func, iterator)
+
+def cube(a):
+    result = []
+    for i in a:
+        result.append(i**3)
+    return result
+
+cube_list=list(map(lambda x: x**3, a))    
+
+print(cube_list)        
+
+
+even_list = list(filter(lambda x: x%2==0, a))
+
+print(even_list)
+
+a = ["apple", "application", "appricode", "appolo", "abc"]
+
+def common_prefix(a):
+    
+    prefix= a[0]
+    for word in a[1:]:
+        while not word.startswith(prefix):
+            prefix = prefix[:-1]
+            
+            if not prefix:
+                return ""
+    
+    return prefix     
+
+print(common_prefix(a))
