@@ -1774,3 +1774,83 @@ def common_prefix(a):
     return prefix     
 
 print(common_prefix(a))
+
+
+
+
+even_number=[i for i in range(1, 1000, 2)]
+print(even_number)
+
+s = "i am pritam"
+
+# for i in s:
+#     if 
+re=s.replace("am", "_", 1)
+
+print(re)
+
+s = "today is 2026-05-22"
+import re
+res=re.findall(r"\d{4}-\d{2}-\d{2}", s)
+print(res)
+
+import functiontool import reduce
+a = [2,5,7,9]
+
+updated_list=list(reduce(lambda x: sum(x), a))
+print(updated_list)
+
+def decorator(func):
+    def wrapper(msg):
+        return func(msg).upper()
+    return wrapper    
+
+
+@decorator
+def message(msg):
+    return msg
+
+# print(message("hello"))  
+s = "aaabbcca"
+# #output= "a3b2c2a1"
+
+output = ""
+count = 1
+for i in range(len(s) -1):
+    if s[i] == s[i+1]:
+        count +=1
+        
+    else:
+        output += s[i] + str(count) 
+        count = 1
+print(output)        
+output += s[-1] + str(count)
+
+print(output)
+
+from collections import Counter
+
+res=Counter(s)
+res="".join(f"{key}{value}" for key, value in res.items())
+
+print(res)
+
+input1=[1,2,3,4,5]
+op1= [1,2,3,4,6]
+ 
+input2=[1,2,3,4,9]
+op2=[1,2,3,5,0]
+ 
+input3=[9,9]
+op3=[1,0,0]
+
+def one_plus(input1):
+    for i in range(len(input1) -1, -1, -1):
+        if input1[i] < 9:
+            input1[i] += 1
+            return input1
+        input1[i] = 0
+    res=[1] + input1  
+    return res
+
+print(one_plus(input3))
