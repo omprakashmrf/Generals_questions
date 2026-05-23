@@ -176,5 +176,94 @@ shuffle(lst)
 print(lst)
     
 
-        
+# Write a program to identify the missing numbers in the sequence without using any loop.
+seq = [1,2,3,4,6,7,8,9,14,15]
 
+num=set(range(min(seq), max(seq)+1)) - set(seq)
+print(num)
+
+# Write a simple logic using multiple decorators to print list of words in lower case
+ 
+input1="Hello World"
+# Output: ["hello", "world"]
+ 
+# You main method should take the input and all the functionality done by the decorators( 1 for splitting the words and 1 for lowering the case)
+
+def to_lower_case(func):
+    def wrapper(text):
+        # for word in text:
+        res=func(text.lower())
+        # print(type(res))
+        return res
+    return wrapper
+
+def split_text(func):
+    def wrapper(text):
+        res=func(text)
+        return res.split()
+    return wrapper
+    
+    
+
+@to_lower_case
+@split_text
+def simple_input(s):
+    return s
+
+print(simple_input(input1))   
+
+# Write a Python function that finds all unique permutations of a given list of integers, including duplicates. The function should return these permutations as a list of lists without using inbuilt function.
+ 
+# input_list = [1, 1, 2]
+ 
+# # Output: [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
+# def get_permutation(nums):
+#     result = []
+    
+#     def back_track():
+#         if 
+
+# Design a simple banking system with the following requirements:
+ 
+# Create a BankAccount class that includes:
+ 
+# A public method to display account details.
+# A protected method to calculate interest (for subclasses).
+# A private method to validate the account number.
+# Create a subclass called SavingsAccount that inherits from BankAccount. The SavingsAccount class should:
+ 
+# Have an additional attribute for the interest rate.
+# Override the protected method to calculate interest based on the balance and interest rate.
+# Implement a way to display account details that includes the calculated interest.
+
+class BankAccount:
+    def __init__(self, account_number, acount_name, balance):
+        self.account_number = account_number
+        self.acount_name = acount_name
+        self.balance = balance
+    
+    # private method
+    def __validate_account_number(self):
+        if not (sel.account_number).isdigit():
+            raise valueError("invalid account")
+    
+    def _calculate_interest(self):
+        "calculatre logic need to write here "
+        return "interest logic"
+    
+    def display_account_details(self):
+        print("account number", self.account_number)
+        print("account holder name", self.account_name)
+        print("account balance", self.balance)
+
+class SavingsAccount(BankAccount):
+    def __init__(self, interest_rate, account_number, acount_name, balance):
+        super().__init__(account_number, acount_name, balance)
+        
+        self.interest_rate = interest_rate
+        
+    def _calculate_interest(self):
+        return ""
+        
+    def display_account(self):
+    
