@@ -267,3 +267,51 @@ class SavingsAccount(BankAccount):
         
     def display_account(self):
     
+
+a =[1, 2, 3]
+squre_number = list(map(lambda x: x**2, a))
+print(squre_number)
+
+
+#  Employees
+
+# | emp_id | name    | dept_id | salary | manager_id |
+
+# | ------ | ------- | ------- | ------ | ---------- |
+
+# | 1      | Alice   | 10      | 60000  | NULL       |
+
+# | 2      | Bob     | 20      | 50000  | 1          |
+
+# | 3      | Charlie | 10      | 40000  | 1          |
+
+# | 4      | David   | 30      | 45000  | 2          |
+
+# | 5      | Eva     | 20      | 55000  | 1          |
+ 
+# Departments
+
+# | dept_id | dept_name |
+
+# | ------- | --------- |
+
+# | 10      | HR        |
+
+# | 20      | IT        |
+
+# | 30      | Finance   |
+ 
+# q. a) Find employees who earn more than their manager salary
+
+
+select e.emp_id,
+        e.name AS emplyee name
+        m.name AS manager_name
+        From Employees e
+    JOIN Employees m
+    On e.manager_id = m.emap_id 
+    where m.salary < e.salary
+
+# Write a Pandas query to find the top 5 products by sales.
+
+top_five_records=df.sort_value(by="sales", accending=False).head(5)
