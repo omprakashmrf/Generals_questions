@@ -315,3 +315,13 @@ select e.emp_id,
 # Write a Pandas query to find the top 5 products by sales.
 
 top_five_records=df.sort_value(by="sales", accending=False).head(5)
+
+
+d = {"om": {"eng": 45, "math": 56, "sci": 32}, "Prakash": {"eng": 76, "math": 43, "sci": 84}, "Yadav": {"eng": 23, "math": 48, "sci": 53}}
+
+for key, value in  d.items():
+    # print(key, value)
+    #print(type(value))
+    sorted_dict=dict(sorted(value.items(), key=lambda x:x[1]))
+    print(sorted_dict)
+    #print(key, value)
