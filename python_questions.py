@@ -325,3 +325,54 @@ for key, value in  d.items():
     sorted_dict=dict(sorted(value.items(), key=lambda x:x[1]))
     print(sorted_dict)
     #print(key, value)
+
+def decorator(func):
+    def wrapper(text):
+        res=func(text)
+        return res.upper()
+    return wrapper    
+
+@decorator
+def f(x):
+ return x
+ 
+r = f("yadav")
+ 
+print(r)
+
+import json 
+data = {"name": "om", "age": 30}
+json_data = json.dump(data)
+print(json_data)
+
+class User(model.models):
+    name = models.charFields(max_len=20)
+    age = models.IntergerFields():
+
+select * from User where name ="om"
+try:
+    qs=User.objects.get(name=name)  
+except User.Doesnotexist:
+    qs = None
+from flask import Flask, 
+
+app =  Flask(__name__)
+
+app.router("/add_user", method=["POST"])
+def add_user(self, request):
+    name = reques.get("name")
+
+import threading
+import time 
+
+def text():
+    print("for deplay", time.sleep(2))
+
+t1=threading.Thread(target=text)   
+t2= threading.Thread(target =text)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
