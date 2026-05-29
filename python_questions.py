@@ -376,3 +376,37 @@ t2.start()
 
 t1.join()
 t2.join()
+
+# Write a function which finds the sum of all odd digits and the sum of all even digits from a list of numbers.
+# nums = [123, 456, 789, 10]
+
+def sum_num(nums):
+    odd_sum = 0
+    even_sum = 0
+    
+    for i in nums:
+        print(str(i))
+        
+        for digit in str(i):
+            #print(type(digit))
+            digit=int(digit)
+            if digit % 2==0:
+                even_sum +=digit
+            else:
+                odd_sum +=digit
+    return odd_sum, even_sum            
+print(sum_num(nums))
+
+
+# what is the output of this code
+
+a = [1, 2, 3, 4, 5, 6]
+[1,0,3,0,5,0]
+
+for i in range(len(a) - 1, -1, -2):
+    print(i)
+        
+    a[i] = 0
+print(a)
+ 
+        
