@@ -408,5 +408,57 @@ for i in range(len(a) - 1, -1, -2):
         
     a[i] = 0
 print(a)
- 
+
+### Problem Statement
+
+# Write a function that takes a list of log entries and returns a summary report.
+
+# **Input:**
+
+# ```python
+logs = [
+    "2024-01-15 ERROR Database connection failed",
+    "2024-01-15 INFO User logged in",
+    "2024-01-15 ERROR File not found",
+    "2024-01-15 WARNING Low memory",
+    "2024-01-15 INFO Request processed",
+    "2024-01-15 ERROR Timeout occurred",
+    
+]
+
+
+# **Expected Output:**
+
+
+{
+    "ERROR": 3,
+    "INFO": 2,
+    "WARNING": 1,
+    "total": 6
+}
+
+
+### Requirements
+
+# - Count occurrences of each log level
+# - Include total count
+def get_log_summary(logs):
+    result = {}
+    
+    for log in logs:
+        #print(log)
+        words=log.split()
         
+        #print(words)
+        key = words[1]
+        if key in result:
+            result[key] +=1
+        else:
+            result[key] =1
+        # print(key)
+        result.update({"TOTAL": len(logs)})
+    
+    return result    
+
+
+print(get_log_summary(logs))   
