@@ -457,6 +457,61 @@ def get_log_summary(logs):
             result[key] =1
         # print(key)
         result.update({"TOTAL": len(logs)})
+
+
+    # import time
+
+def decorator(func):
+    def wrapper(num):
+        start_time = time.time()
+        res=func(num)
+        excution_time = time.time() - start_time
+        print("excution_time", excution_time)
+        return res
+    return wrapper
+    
+    
+@decorator
+def factorial(num):
+    fact = 1
+    
+    for i in range(1, num+1):
+        fact *=i
+    return fact  
+print(factorial(6))
+
+import pandas as pd 
+
+data = {
+    "emp_id": [1,2,3],
+    "name": ["om", "ash", "sonu"],
+    "salary": [20000, 25000, 30000]
+}
+
+df=pd.DataFrame(data)
+filter_re=df[df["salary"]> 20000]
+print(filter_re)
+
+df.loc[df["emp_id"] == 3, "salary"] = 40000
+# print(third_emp)
+# third_emp["salary"] = 35000
+
+
+
+# print(df)df.li
+
+# index = df[df["emp_id"]==3].index[0]
+# print(index)
+# df.iloc[index, 2] ==35000
+
+print(df)
+
+
+
+
+
+
+    
     
     return result    
 
