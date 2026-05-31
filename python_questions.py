@@ -505,15 +505,36 @@ df.loc[df["emp_id"] == 3, "salary"] = 40000
 # df.iloc[index, 2] ==35000
 
 print(df)
-
-
-
-
-
-
-    
-    
     return result    
-
-
 print(get_log_summary(logs))   
+
+# Design an event-driven system using SQS, Lambda, and DynamoDB.
+
+
+# [web app/fast API] ----->messsage. [AWS SQS (message queue)] ----->trigger. [AWS Lamda (message)] ------> process data [Dynamodb (storing purpose)]  
+
+# Design a FastAPI service that triggers cloud provisioning workflows and tracks their status.
+
+# [client/ UI] -----> [FastAPI] ------> create
+
+
+# from fastapi import FastAPI
+# import uuid
+
+
+# app = FastAPI()
+
+# @app.router("/provision")
+# def provision():
+#     requesr_id = str(uuid.uuid4)
+    
+#     #
+#     return {
+#         "request_id": requesr_id,
+#         "status": "true"
+#     }
+
+
+# [server] (user_name, password) ---->token (pass that to api header) + able to access that api 
+
+[web portal] ------>[django/ flas APi]------> [tenent + poduct area]  ------ 
