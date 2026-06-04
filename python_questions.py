@@ -538,3 +538,49 @@ print(get_log_summary(logs))
 # [server] (user_name, password) ---->token (pass that to api header) + able to access that api 
 
 [web portal] ------>[django/ flas APi]------> [tenent + poduct area]  ------ 
+
+
+Table 1     Table 2
+A.                C
+B.                  D
+C                   E
+D                  F
+
+Inner join
+ 
+Left join
+
+Inner join --> [C, D]
+left join.
+Table1. Tbale 2
+
+A       null
+ 
+B       null
+C.       C
+D.       D
+
+
+department_wise_salary=df.groupby("department")["salary"].sum()
+print()
+from collections import Counter
+
+List1 = [1,2,5,4,2,5 ,5,3]
+
+duplicate=set(List1)
+print(duplicate)
+count = Counter(List1)
+
+
+print(count)
+
+def get_freq(lst):
+    result = {}
+    
+    for i in lst:
+        result[i] = result.get(i, 0) +1
+    
+    return result
+
+
+print(get_freq(List1))    
