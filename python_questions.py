@@ -584,3 +584,35 @@ def get_freq(lst):
 
 
 print(get_freq(List1))    
+
+
+a=[1,2,[3,4,[5,6],7],8]
+
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        for attemp in range(3):
+            try:
+                res=func(*args, **kwargs)
+                return res
+            except Exception as e:
+                print("attempt pending" attempt+1)
+    return wrapper     
+    
+def flattern(lst):
+    result = []
+    
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flattern(item))
+        else:
+            result.append(item)
+    return result
+
+print(flattern(a))   
+
+class course(models.model):
+    name = models.ChanrField(maxLen=100)
+
+class Student(models.model):
+    name = models.ChanrField(maxLen=20)
+    couses = models.ManyToMany(course)
