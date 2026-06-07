@@ -616,3 +616,12 @@ class course(models.model):
 class Student(models.model):
     name = models.ChanrField(maxLen=20)
     couses = models.ManyToMany(course)
+
+# named tuple 
+from collections import namedtuple
+Employee= namedtuple("a", ["id", "name", "salary"])
+a=Employee(123, "om", 3456789043)
+print(a.id)
+print(a.name)
+print(a.salary)
+
