@@ -625,3 +625,39 @@ print(a.id)
 print(a.name)
 print(a.salary)
 
+
+
+Lazy Loading---> In Lazy Loading, related data is not fetched immediately. It is loaded only when you actually access it.
+class Department:
+    pass
+
+class Employee:
+    department = relationship("Department")  # Lazy loading by default
+
+Faster initial query
+
+✅ Uses less memory
+
+✅ Good when related data is rarely needed
+
+Disadvantages
+
+❌ Multiple database calls
+❌ Can cause N+1 Query Problem
+
+Eager Loading
+In Eager Loading, related data is fetched immediately along with the main object.
+for emp in employees:
+    print(emp.department.name)
+
+✅ Reduces database round trips
+✅ Prevents N+1 problem
+✅ Better performance when related data is needed
+
+Disadvantages
+
+❌ Larger initial query
+❌ More memory consumption
+❌ May fetch unnecessary data
+
+
