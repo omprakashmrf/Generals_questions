@@ -672,3 +672,19 @@ def find_two_sum_zero(arr):
 
 print(find_two_sum_zero(a))   
 
+Descriptor Protocol
+
+A class becomes a descriptor if it implements one or more of these methods:
+__get__(self, instance, owner)
+__set__(self, instance, value)
+__delete__(self, instance)
+
+
+Circuit Breaker is a design pattern used in distributed systems and microservices to prevent cascading failures when a dependent service is slow, failing, or unavailable.
+Real-Life Analogy
+Think of the electrical circuit breaker in your house.
+If too much current flows, the breaker trips.
+It stops electricity from flowing to prevent damage.
+After some time, you can reset it and test again.
+
+The software circuit breaker works similarly.
