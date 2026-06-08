@@ -660,4 +660,15 @@ Disadvantages
 ❌ More memory consumption
 ❌ May fetch unnecessary data
 
+a =[-1,0 , 3, 2, 1]
+# find two sum 
+def find_two_sum_zero(arr):
+    seen = {}
+    
+    for i, num in enumerate(a):
+        if -num in seen:
+            return [i, seen[-num]]
+        seen[num] = i
+
+print(find_two_sum_zero(a))   
 
