@@ -688,3 +688,39 @@ It stops electricity from flowing to prevent damage.
 After some time, you can reset it and test again.
 
 The software circuit breaker works similarly.
+
+a=["HCLTech", "HCLTechnologies", "HCL"]
+
+def longest_common_prefix(string):
+    if not string:
+        return ""
+    
+    prefix =""
+    first=string[0]
+    for i in range(len(string)):
+        # print(i)
+        ch=first[i]
+        
+        for j in string[1:]:
+            if i>=len(j)  or j[i] != ch:
+                return prefix
+        prefix +=ch
+    return prefix
+
+print(longest_common_prefix(a))  
+
+a = [9, 8, 7, 8, 6, 5, 4, 3]
+def unique_record(a):
+    freq = {}
+    
+    result = []
+    for num in a:
+        freq[num] = freq.get(num, 0) +1
+    
+    print(freq)
+    
+    for num in a:
+        if freq[num] ==1:
+            result.append(num)
+    return result
+print(unique_record(a))  
