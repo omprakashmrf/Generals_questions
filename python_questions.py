@@ -724,3 +724,12 @@ def unique_record(a):
             result.append(num)
     return result
 print(unique_record(a))  
+
+# python lambda function is memory efficient as compare to traditional function
+
+lagging module --->
+level is deciding to which one module will work active 
+if INFO ---> all will work
+if Error ----> error and critical will work 
+
+app_name ----> specity for on witch app this function will work 
