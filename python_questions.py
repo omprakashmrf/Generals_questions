@@ -733,3 +733,42 @@ if INFO ---> all will work
 if Error ----> error and critical will work 
 
 app_name ----> specity for on witch app this function will work 
+
+front end  (customer number, location)---> fastAPI ---> db for trasection ---->(all fields correesponding th that record) ml () ---- retun response 
+
+
+from fastapi import FastAPI
+from pydetic import BaseModel
+ml
+
+app = FastAPI()
+
+class CustomerRequest(BaseModel):
+    cutomer_number: int
+    location: str
+
+
+@app.post("/check-fraud")
+def check_fraud(request: CustomerRequest):
+    # fetch the trasection from the db 
+    cutomer_data=get_customer_tracsection(request.cutomer_number,
+    request.location)
+    
+    prediction=model.predict(cutomer_data)
+    
+    if prediction ==1:
+        return {
+            "fraud" : True,
+            "message": "this customer"
+        }
+
+dockfile 
+
+python 3.13
+wokinf dir : app
+copy requiremnets.txt
+
+run pip install -r requirement.txt
+copy 
+port name 8000
+cmd ["unicorn"]
