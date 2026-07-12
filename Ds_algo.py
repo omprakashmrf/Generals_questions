@@ -326,5 +326,18 @@ class MyQueue:
         
         return self.s2.pop()
 
-
-        
+Merge Strings Alternately
+def mergeAlternately(word1, word2):
+    output = ""
+    for first, second in zip(word1, word2):
+        output+="".join(first+second)
+    
+    if len(word1) > len(word2):
+        output +=word1[len(word2): len(word1)]
+    else:
+        output +=word2[len(word1): len(word2)]
+    return output  
+    
+word1 = "abcdef"
+word2 = "pqr"
+print(mergeAlternately(word1, word2)) 
