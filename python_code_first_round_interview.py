@@ -809,3 +809,41 @@ sorted_custom = dict(sorted(data.items(), key=lambda item: len(item[1])))
 print(sorted_custom)
 Would you like to sort a nested dict, or sort only keys or only values?
 
+# Your team owns a Django-based Orders service that powers business-critical APIs. Support has reported that some endpoints respond slowly at random times, and the tech lead wants execution-time logging added to suspect functions. The rule: the business logic inside those functions must not be touched — the instrumentation has to be reusable across any function in the codebase.
+# Question
+# a) First, write a plain decorator log_execution_time that logs the function's name and its execution time in milliseconds. It must work with any function signature, must return the function's result, and must not break the decorated function's name or docstring.
+# b) Now upgrade the same decorator to accept a parameter threshold_ms — it should log only when execution time exceeds the threshold.
+# Code provided:
+# def fetch_orders(customer_id, status="OPEN"):
+#     """Returns open orders for a customer."""
+#     ...  # existing business logic — do not modify
+
+# solution a).
+import time    
+    
+def log_execution_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        res=func(*args, **kwargs)
+        excution_time  = time.time() - start_time
+        print(f"{func.__name__} ecution_time {excution_time}")
+        return res
+    return wrapper
+
+@log_execution_time
+def say():
+    print("this is sample function")
+
+say()
+
+
+# solution b)
+def log_execution_time(func):
+    def wrapper(thresold_ms = 0):
+        start_time = time.time()
+        res=func(*args, **kwargs)
+        excution_time  = time.time() - start_time
+        if excution_time > thresold_ms:
+            print(f"{func.__name__} ecution_time {excution_time}")
+        return res
+    return wrapper
