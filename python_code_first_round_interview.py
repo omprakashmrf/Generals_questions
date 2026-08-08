@@ -847,3 +847,47 @@ def log_execution_time(func):
             print(f"{func.__name__} ecution_time {excution_time}")
         return res
     return wrapper
+
+Student  ---> name, id, address, school_name, subject
+API----> 
+
+POST http/ api/students. 
+APIVIew
+---
+
+get ---> api/students/{id}
+create student 
+
+GET. 
+
+
+def decorator(func):
+    def wrapper(id, name):
+        print(f"hello {name}")
+        res=func(id, name)
+        return res
+    return wrapper    
+
+
+@decorator
+def student(id, name ):
+    print(id, name)
+    
+student(1, "omprakash")  
+
+list1 =[1,[2,[3,4,[5]]]]
+
+def flatternlist(lst):
+    result = []
+    
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flatternlist(item))
+        else:
+            result.append(item)
+    return result
+
+print(flatternlist(list1))        
+
+
+    
