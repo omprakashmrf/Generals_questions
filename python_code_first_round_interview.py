@@ -890,4 +890,36 @@ def flatternlist(lst):
 print(flatternlist(list1))        
 
 
-    
+# Imagine you are processing a massive stream of log data from a server. You have a massive list (or stream) of strings where each string represents a log line.
+# Write a python function called extract_ errors(log_stream) that iterates over this stream. 
+# If a line contains the substring 'ERROR', it should yield a dictionary 
+# containing the log level and the message. Ignore all other log levels.
+
+
+
+def ertract_logs(log_string):
+    # result = []
+    for line in  log_string:
+        if "ERROR" in line:
+            parts=line.split(" ", 2)
+            #print((parts[2]))
+            #print(parts)
+            yield {
+                    "log level": parts[0],
+                    "message": parts[1] +" "+ parts[2]  
+                }
+    #return result        
+
+logs = [
+"INFO: Server started successfully",
+"ERROR: Database connection timeout",
+"DEBUG: Loaded 40 items",
+"ERROR: Disk space critical"
+]
+
+# logs = [
+# "ERROR: Server started successfully for id: 1234"
+# ]
+
+for error in ertract_logs(logs):
+    print(error)
