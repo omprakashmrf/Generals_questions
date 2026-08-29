@@ -923,3 +923,27 @@ logs = [
 
 for error in ertract_logs(logs):
     print(error)
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        if s is None:
+            return s
+        words=s.split()
+        reverse=words[::-1]
+        output = ""
+        for word in reverse:
+            output +=  word + " "
+            print(word) 
+        print(output.strip())  
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        words=s.split()
+        reverse=words[::-1]
+        return " ".join(reverse)
+
+
+obj= Solution()
+s= "my name is omprakash"
+print(obj.reverseWords(s))
+    
