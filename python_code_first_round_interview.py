@@ -978,3 +978,25 @@ def longest_substring(s):
 
 s = "abcdabcbbxyzt"
 print(longest_substring(s))
+
+from typing import List
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums is None:
+            return nums
+        lenght = len(nums)
+        result = []
+
+        for i in range(lenght):
+            product = 1
+            for j in range(lenght):
+                if i != j:
+                    product *= nums[j]
+            result.append(product)
+
+        return result
+
+obj = Solution()
+nums = [1,2,3,4,5]
+print(obj.productExceptSelf(nums))
+
